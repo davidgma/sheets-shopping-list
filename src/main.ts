@@ -11,7 +11,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
   `,
 })
 export class App {
-  name = 'Angular3';
+  name = 'Angular4';
 }
 
 bootstrapApplication(App);
