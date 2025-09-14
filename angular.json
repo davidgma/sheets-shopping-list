@@ -21,9 +21,9 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public",
-                "CNAME"
-              }
+                "input": "public"
+              },
+              "src/CNAME"
             ],
             "styles": [
               "src/styles.css"
