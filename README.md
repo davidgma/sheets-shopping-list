@@ -133,6 +133,31 @@ ng serve --host 0.0.0.0 --port 4200 --allowed-hosts "sheets-shopping-list"
 The strategy is to have the choice between:
 1.1 Using StackBlitz. This serves the Angular code to a StackBlitz website.
 1.1 Using a local version of VS Code pointed at the vm code via sshfs and using a terminal in the vm to serve, build, run npm commands, run git commands. This serves the code to the external web address vm.freshfood.rocks. It may be a bit insecure, I'm not sure. The ng serve commands gives out warnings that it isn't.
+This strategy failed because sshfs is so slow that the VS Code running locally but using remote files just takes forever to load the typescript and Angular checkers. So I had to abandon that strategy.
+1. Instead, I tried an alternate strategy - to run everything locally (Code, npm, ng etc) but forward the port through to the remote server so that it can be accessed with the external web address. The reason I'm worrying about this in the first place, by the way, is because I'm going to be using a Google API key and client ID and I want to be able to restrict them to certain web addresses that I own. But to use the localhost directly you have to add localhost to the allowed requesting URLs in the Google Console configuration, and localhost belong to everyone so it seemed insecure.
+1. To arrange this alternate approach:
+1.1 I updated the ssh script to allow for port forwarding from the local machine to the vm.
+```bash
+#!/bin/bash
+ssh -X -R vm.freshfood.rocks:5200:localhost:5200 david@vm.freshfood.rocks 
+```
+1.1 I had to change the GatewayPorts setting to yes in the /etc/ssh/sshd_config file.
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+then in the file /etc/ssh/sshd_config:
+```bash
+GatewayPorts yes
+```
+Then restart the ssh server on the vm.
+```bash
+sudo systemctl restart ssh
+```
+1.1. I had to create a hole in the Google vm firewall to allow port 5200 to be open. In the Google Cloud Console, VPC Network, Firewall, Create Firewall policy.
+1.1. The ng serve command had to be updated to all for the port forwarding and reading from outside of localhost:
+```bash
+ng serve --host 0.0.0.0 --port 5200 --allowed-hosts "sheets-shopping-list"
+```
 1. Set git to store login credentials in memory for a time.
 ```bash
 git config --global credential.helper 'cache --timeout=36000'
