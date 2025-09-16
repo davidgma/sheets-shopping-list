@@ -141,6 +141,7 @@ This strategy failed because sshfs is so slow that the VS Code running locally b
 #!/bin/bash
 ssh -X -R vm.freshfood.rocks:5200:localhost:5200 david@vm.freshfood.rocks 
 ```
+Information about this came from [here](https://www.ssh.com/academy/ssh/tunneling-example#local-forwarding)
 1.1 I had to change the GatewayPorts setting to yes in the /etc/ssh/sshd_config file.
 ```bash
 sudo vim /etc/ssh/sshd_config
