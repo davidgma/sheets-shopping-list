@@ -105,6 +105,30 @@ ng build
 "importHelpers": false,
 }
 ```
-1. Started making changes to the code.
+1. Created a file to connect to the vm. 2-ssh-vm-david:
+```bash
+#!/bin/bash
+ssh -X david@vm.freshfood.rocks 
+```
+1. Set up sshfs
+```bash
+sudo apt install sshfs
+sudo vim /etc/fuse.conf
+mkdir ~/local/vm
+```
+Then removed the # before the user_allow_other.
+1. Created a file to set up an sshfs directory. 3-sshfs-vm:
+```bash
+#!/bin/bash
+sshfs -o allow_other,idmap=user david@vm.freshfood.rocks:/home/david ~/local/vm 
+
+```
+1. Started making changes to the code using StackBlitz.
+1. Set up a file for use in the vm to serve the Angular project to port 4200 while allowing this to be accessed from an external web address.
+2-serve:
+```bash
+#!/bin/bash
+ng serve --host 0.0.0.0 --port 4200 --allowed-hosts "sheets-shopping-list"
+```
 1. Followed Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
 1. 
