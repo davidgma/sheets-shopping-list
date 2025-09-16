@@ -1,4 +1,4 @@
-# SheetsShoppingList
+# Sheets Shopping List
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.0.
 
@@ -57,3 +57,44 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Steps taken. 
+I've kept a record of what I did for my own benefit, but if it is useful to anyone else, so much the better.
+
+1. In GitHub, I created a new repository sheets-shopping-list.
+1. In a local folder, I created a new Angular project with the same name.
+1. Used git commands to overwrite the Github repository with the new Angular project per [these instructions](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git).
+```
+git branch -m master main
+git remote add origin https://github.com/davidgma/sheets-shopping-list.git
+git remote -v
+git push -f origin main
+```
+1. Created a script file for making further updates. (And I use git pull when first starting with a different version of the code as I have different computers that I work on).
+```bash
+1-update-git
+#!/bin/bash
+
+if [ $# -gt 0 ]; then
+	message=$*
+else
+	message="Some files updated."
+fi
+
+
+#ng build
+git add *
+git commit -m "${message}"
+git push origin main
+
+```
+1. Updated the 
+1. Checked that it built okay
+```
+ng build
+```
+
+
+
+Following Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
