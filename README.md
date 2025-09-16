@@ -132,6 +132,10 @@ ng serve --host 0.0.0.0 --port 4200 --allowed-hosts "sheets-shopping-list"
 ```
 The strategy is to have the choice between:
 1.1 Using StackBlitz. This serves the Angular code to a StackBlitz website.
-1.1 Using a local version of VS Code pointed at the vm code via sshfs and using a terminal in the vm to serve, build, run npm commands, run git commands. This serves the code to the external web address vm.freshfood.rocks. It may be a bit insecure, I'm not sure. The ng serve commands gives out warnings that it isn't 
+1.1 Using a local version of VS Code pointed at the vm code via sshfs and using a terminal in the vm to serve, build, run npm commands, run git commands. This serves the code to the external web address vm.freshfood.rocks. It may be a bit insecure, I'm not sure. The ng serve commands gives out warnings that it isn't.
+1. Set git to store login credentials in memory for a time.
+```bash
+git config --global credential.helper 'cache --timeout=36000'
+```
 1. Followed Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
 1. 
