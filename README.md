@@ -1,4 +1,4 @@
-# SheetsShoppingList
+# Sheets Shopping List
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.0.
 
@@ -57,3 +57,13 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Steps taken. 
+I've kept a record of what I did for my own benefit, but if it is useful to anyone else, so much the better.
+
+1. In GitHub, I created a new repository sheets-shopping-list.
+1. In a local folder, I created a new Angular project with the same name.
+1. Used git commands to overwrite the Github repository with the new Angular project.
+
+Following Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
