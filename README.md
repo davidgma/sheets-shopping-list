@@ -89,12 +89,22 @@ git commit -m "${message}"
 git push origin main
 
 ```
-1. Updated the 
+1. Used to remove a file from git and the local directory:
+```
+git rm zz_vite.confiig.js
+```
 1. Checked that it built okay
 ```
 ng build
 ```
-
-
-
-Following Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
+1. Updated Github and then opened the code in StackBlitz.
+1. Amended the tsconfig.json file to stop StackBlitz giving an error about helpers and tslib:
+```json
+"compilerOptions": {
+	...
+"importHelpers": false,
+}
+```
+1. Started making changes to the code.
+1. Followed Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
+1. 
