@@ -163,6 +163,7 @@ ng serve --host 0.0.0.0 --port 5200 --allowed-hosts "sheets-shopping-list"
 ```bash
 git config --global credential.helper 'cache --timeout=36000'
 ```
-1. Followed Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
-1. 
+1. Viewed some of Brad Traversy's video: https://youtu.be/oykl1Ih9pMg
+1. Reviewed Angular tutorials.
+1. Ported what I had from shopping-vue to this Angular version.
 
