@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sl-nav',
+  selector: 'sl-nav',
   imports: [],
   templateUrl: './sl-nav.html',
   styleUrl: './sl-nav.css'
