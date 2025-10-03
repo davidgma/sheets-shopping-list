@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SlIcon } from '../sl-icon/sl-icon';
 
 @Component({
   selector: 'app-sl-home',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './sl-home.html',
   styleUrl: './sl-home.css'
 })
-export class SlHome {
+export class SlHome extends SlIcon {
 
 }
+
+
+
