@@ -7,7 +7,7 @@ import { Router, EventType } from '@angular/router';
   templateUrl: './sl-icon.html',
   styleUrl: './sl-icon.css'
 })
-export class SlIcon {
+export class SlIcon implements OnInit  {
   private router = inject(Router);
   routeName = input("");
   defaultColour = input("green");
