@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlConfig } from './sl-config';
+import { SlvSettings } from './slv-settings';
 
-describe('SlConfig', () => {
-  let component: SlConfig;
-  let fixture: ComponentFixture<SlConfig>;
+describe('SlvSettings', () => {
+  let component: SlvSettings;
+  let fixture: ComponentFixture<SlvSettings>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SlConfig]
+      imports: [SlvSettings]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SlConfig);
+    fixture = TestBed.createComponent(SlvSettings);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

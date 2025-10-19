@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sl-cookies',
+  selector: 'slv-cookies',
   imports: [],
   templateUrl: './sl-cookies.html',
   styleUrl: './sl-cookies.css'

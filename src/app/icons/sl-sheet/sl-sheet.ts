@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SlIcon } from '../sl-icon/sl-icon';
 
 @Component({
-  selector: 'sl-sheet',
+  selector: 'sli-sheet',
   imports: [],
   templateUrl: './sl-sheet.html',
   styleUrl: './sl-sheet.css'

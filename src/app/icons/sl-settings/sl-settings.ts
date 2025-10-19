@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SlIcon } from '../sl-icon/sl-icon';
 
 @Component({
-  selector: 'sl-settings',
+  selector: 'sli-settings',
   imports: [],
   templateUrl: './sl-settings.html',
   styleUrl: './sl-settings.css'

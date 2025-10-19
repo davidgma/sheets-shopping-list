@@ -2,7 +2,7 @@ import { Component, input, OnInit, inject } from '@angular/core';
 import { Router, EventType } from '@angular/router';
 
 @Component({
-  selector: 'sl-icon',
+  selector: 'sli-icon',
   imports: [],
   templateUrl: './sl-icon.html',
   styleUrl: './sl-icon.css'
