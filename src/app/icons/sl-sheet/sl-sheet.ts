@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { SlIcon } from '../sl-icon/sl-icon';
 
 @Component({
-  selector: 'app-sl-sheet',
+  selector: 'sl-sheet',
   imports: [],
   templateUrl: './sl-sheet.html',
   styleUrl: './sl-sheet.css'
 })
-export class SlSheet {
+export class SlSheet extends SlIcon {
 
 }
