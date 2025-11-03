@@ -1,7 +1,10 @@
 body {
     font-family: Ubuntu, Arial, Helvetica, sans-serif;
-    font-size: 2vh;
+    font-size: 3vh;
     color: #369;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
