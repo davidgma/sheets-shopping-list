@@ -4,67 +4,73 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  public spreadsheetId = "initial2";
   public debug: string;
-  private defaults: Defaults;
+  public defaults: Defaults;
 
   constructor() {
 
-    this.defaults = new Defaults(
-      "1YZWmLktxzprYWLZDHopC0vsz_Z44eavyHyo0lgWsSj4", //spreadsheetId
-      "285838277656-epg5b87qpis468k0r6crifeiq8m68djf.apps.googleusercontent.com", //cliendId
-      "AIzaSyBYAKEDgQCyvtwbUk0Gws7obBycBCva99E", //APIkey
-      "list", //listRange
-      "cookies", //cookiesRange
-      "", //authenticationToken
-      null, // accessTokenExpiry number of seconds since 1970, when token expires
-      1, //version
-      "", //listData
-      ""); //cookiesData
-  
-   this.debug = this.defaults.toString();
+    this.defaults = new Defaults();
+    this.defaults.data.set("spreadsheetId", "1YZWmLktxzprYWLZDHopC0vsz_Z44eavyHyo0lgWsSj4")
+    this.defaults.data.set("cliendId", "285838277656-epg5b87qpis468k0r6crifeiq8m68djf.apps.googleusercontent.com");
+    this.defaults.data.set("APIkey", "AIzaSyBYAKEDgQCyvtwbUk0Gws7obBycBCva99E");
+    this.defaults.data.set("listRange", "list");
+    this.defaults.data.set("cookiesRange", "cookies");
+    this.defaults.data.set("authenticationToken", "");
+    this.defaults.data.set("accessTokenExpiry", "null");
+    this.defaults.data.set("version", "1");
+    this.defaults.data.set("listData", "");
+    this.defaults.data.set("cookiesData", "");
 
-    const spreadsheetIdStored = localStorage.getItem("spreadsheetId");
-    if (spreadsheetIdStored === null) {
-      // this.debug = "spreadsheetId is null ";
-      localStorage.setItem("spreadsheetId", this.spreadsheetId);
-    }
-    else {
-      // this.debug = "spreadsheetId: " + spreadsheetIdStored;
-      this.spreadsheetId = spreadsheetIdStored;
-    }
+
+    this.debug = this.defaults.toString();
 
 
   }
 
-  
+
 }
 
 class Defaults {
-  constructor(
-    private _spreadsheetId: string,
-    private _cliendId: string,
-    private _APIkey: string,
-    private _listRange: string,
-    private _cookiesRange: string,
-    private _authenticationToken: string,
-    private _accessTokenExpiry: number | null,
-    private _version: number,
-    private _listData: string,
-    private _cookiesData: string
-  ) { }
+  public data = new Map<string, string>();
 
-  toString(): string {
-    return "\n" + "spreadsheetId: " + this._spreadsheetId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "APIkey: " + this._APIkey + "\n"
-    + "listRange: " + this._listRange + "\n"
-    + "cookiesRange: " + this._cookiesRange + "\n"
-    + "authenticationToken: " + this._authenticationToken + "\n"
-    + "accessTokenExpiry: " + this._accessTokenExpiry + "\n"
-    + "version: " + this._version + "\n"
-    + "listData: " + this._listData + "\n"
-    + "cookiesData: " + this._cookiesData + "\n"
-    ;
+  toString() {
+    let result = "";
+    for (let item of this.data.entries()) {
+      result += item[0] + " = ";
+    }
+    return result;
   }
+  // toString(): string {
+  //   return "\n" + "spreadsheetId: " + this.spreadsheetId + "\n"
+  //   + "cliendId: " + this._cliendId + "\n"
+  //   + "APIkey: " + this._APIkey + "\n"
+  //   + "listRange: " + this._listRange + "\n"
+  //   + "cookiesRange: " + this._cookiesRange + "\n"
+  //   + "authenticationToken: " + this._authenticationToken + "\n"
+  //   + "accessTokenExpiry: " + this._accessTokenExpiry + "\n"
+  //   + "version: " + this._version + "\n"
+  //   + "listData: " + this._listData + "\n"
+  //   + "cookiesData: " + this._cookiesData + "\n"
+  //   ;
+  // }
+
+  // get spreadsheetId() {
+  //   const name = "spreadsheetId";
+  //   const stored = localStorage.getItem(name);
+  //   if (stored === null) {
+  //     localStorage.setItem(name, this._spreadsheetId);
+  //   }
+  //   else {
+  //     this._spreadsheetId = stored;
+  //   }
+  //   return this._spreadsheetId;
+  // }
+
+  // set spreadsheetId(value: string) {
+  //   const name = "spreadsheetId";
+  //   localStorage.setItem(name, value);
+  //   this._spreadsheetId = value;
+  // }
+
+
 }
