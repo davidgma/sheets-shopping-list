@@ -9,6 +9,7 @@ export class DataService {
 
   constructor() {
 
+    // this.spreadsheetId = "test";
     this.defaults = new Defaults();
     this.defaults.data.set("spreadsheetId", "1YZWmLktxzprYWLZDHopC0vsz_Z44eavyHyo0lgWsSj4")
     this.defaults.data.set("cliendId", "285838277656-epg5b87qpis468k0r6crifeiq8m68djf.apps.googleusercontent.com");
@@ -21,10 +22,18 @@ export class DataService {
     this.defaults.data.set("listData", "");
     this.defaults.data.set("cookiesData", "");
 
+    // Use locally stored values where possible
+    this.defaults.overrideWithLocal();
 
     this.debug = this.defaults.toString();
+  }
 
-
+  public get spreadsheetId(): string {
+    return this.defaults.getByName("spreadsheetId");
+  }
+  public set spreadsheetId(value: string) {
+    this.defaults.data.set("spreadsheetId", value);
+    localStorage.setItem("spreadsheetId", value);
   }
 
 
@@ -33,44 +42,34 @@ export class DataService {
 class Defaults {
   public data = new Map<string, string>();
 
+  overrideWithLocal() {
+    for (let item of this.data.entries()) {
+      const local = localStorage.getItem(item[0]);
+      if (local !== null) {
+        this.data.set(item[0], local);
+      }
+    }
+  }
+
   toString() {
     let result = "";
     for (let item of this.data.entries()) {
-      result += item[0] + " = ";
+      result += item[0] + " = " + item[1] + ". ";
     }
     return result;
   }
-  // toString(): string {
-  //   return "\n" + "spreadsheetId: " + this.spreadsheetId + "\n"
-  //   + "cliendId: " + this._cliendId + "\n"
-  //   + "APIkey: " + this._APIkey + "\n"
-  //   + "listRange: " + this._listRange + "\n"
-  //   + "cookiesRange: " + this._cookiesRange + "\n"
-  //   + "authenticationToken: " + this._authenticationToken + "\n"
-  //   + "accessTokenExpiry: " + this._accessTokenExpiry + "\n"
-  //   + "version: " + this._version + "\n"
-  //   + "listData: " + this._listData + "\n"
-  //   + "cookiesData: " + this._cookiesData + "\n"
-  //   ;
-  // }
 
-  // get spreadsheetId() {
-  //   const name = "spreadsheetId";
-  //   const stored = localStorage.getItem(name);
-  //   if (stored === null) {
-  //     localStorage.setItem(name, this._spreadsheetId);
-  //   }
-  //   else {
-  //     this._spreadsheetId = stored;
-  //   }
-  //   return this._spreadsheetId;
-  // }
+  getByName(name: string) {
+    const result = this.data.get(name);
+    if (result !== undefined) {
+      return result;
+    }
+    else return "undefined";
+  }
 
-  // set spreadsheetId(value: string) {
-  //   const name = "spreadsheetId";
-  //   localStorage.setItem(name, value);
-  //   this._spreadsheetId = value;
-  // }
+  setByName(name: string, value: string) {
+    this.data.set(name, value);
+  }
 
 
 }
