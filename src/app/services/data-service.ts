@@ -58,13 +58,13 @@ class Defaults {
     return "\n" + "spreadsheetId: " + this._spreadsheetId + "\n"
     + "cliendId: " + this._cliendId + "\n"
     + "APIkey: " + this._APIkey + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
-    + "cliendId: " + this._cliendId + "\n"
+    + "listRange: " + this._listRange + "\n"
+    + "cookiesRange: " + this._cookiesRange + "\n"
+    + "authenticationToken: " + this._authenticationToken + "\n"
+    + "accessTokenExpiry: " + this._accessTokenExpiry + "\n"
+    + "version: " + this._version + "\n"
+    + "listData: " + this._listData + "\n"
+    + "cookiesData: " + this._cookiesData + "\n"
     ;
   }
 }
